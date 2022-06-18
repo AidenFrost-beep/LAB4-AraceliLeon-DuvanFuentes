@@ -5,7 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
+
+    <!-- CSS de Bootstrap -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9">
+
+                <form action="enviar.php" method="get" class="bg-light my-3 p-3 border rounded">
+                    <h2>Formulario</h2>
+                    <div class="form-group">
+                        <p>Id: <input type="text" class="form-control" name="nombre"></p>
+                        <p>Nombre: <input type="text" class="form-control" name="apellido"></p>
+                        <p>Imagen: <input type="file" class="form-control-file" name="iamgen"></p>
+                        <p>Precio: <input type="number" class="form-control" name="precio"></p>
+                        <p>Categoria:
+                            <select class="custom-select" name="categoria">
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>                              
+                        </p>
+                        <p>Temporada: <input type="radio" class="form-control" name="temporada"></p>
+                        <p>Fecha: <input type="date" class="form-control" name="date"></p>
+                        <p>Descripcion: <textarea class="form-control" name="descripcion"></textarea>
+                        <p><button type="submit" class="btn btn-primary">Guardar</button></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
