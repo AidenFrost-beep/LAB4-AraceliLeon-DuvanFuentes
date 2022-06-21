@@ -12,10 +12,9 @@
 <body>
     <?php
     include "conexion.php";
-    $sql = "SELECT nombre, imagen, precio, categoria FROM sistemadeinfomacion.producto";
-    $sql_run = mysqli_query($conn,$sql);
-    while($row = mysqli_fetch_array($sql_run))
-    {
+    $sql = "SELECT id,nombre, imagen, precio, categoria FROM sistemadeinfomacion.producto";
+    $sql_run = $conn->query($sql);
+    while($row = $sql_run->fetch_assoc()){
     ?>
     <div class="card mb-3">
         <div class="row no-gutters">
@@ -30,15 +29,18 @@
                 <p class="card-text">
                     <?php echo $row['precio']?>
                 </p>
+                <p>
+                <?php echo $row['id']; ?>
+                </p>
+
                 <a href="#" class="btn btn-primary">Ver</a>
-                <a href="#" class="btn btn-primary">Editar</a>
-                <a href="#" class="btn btn-primary">Eliminar</a>
+                <a href="Modificar.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Editar  </a>
+                <a href="eliminar.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Eliminar</a>
                 </div>
             </div>
         </div>
     </div>
     <?php
-        
         }
     ?>
 </body>

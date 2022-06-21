@@ -36,15 +36,8 @@ echo "nombre: " . $producto["nombre"] . ", Imagen: ". ", Edad: ". $producto["pre
 
 ?>
 
-<p>COMOESO</p>
-    <p><img src="data:image/jpg;base64,<?php foreach($productos as $producto){
-        echo base64_encode($producto["imagen"]);
-        echo "puxa ";
-      }  ?>"> 
-      <img width="10" src="data:image/jpg;base64,<?php foreach($productos as $producto){
-        echo base64_encode($producto["imagen"]);
-        echo "puxa ";
-      }  ?>">  
+<p><a href="Modificar.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Editar  </a>
+                <a href="eliminar.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Eliminar</a>
     
     </p>
     

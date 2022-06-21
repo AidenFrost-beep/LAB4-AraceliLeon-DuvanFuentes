@@ -1,42 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Vista</title>
+
+    <!-- CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
-    
-        <form action="" method="POST" enctype="multipart/form-data">
-            <table>
-                <thead>
-                    <tr>
-                        <th> IMAGE</th>
-                        <th> username</th>
-                        <th>lapromo</th>
-                    </tr>
-                </thead>
-                <?php
-                   
-                   include "conexion.php";
-                   $sql = "SELECT nombre, imagen, precio, categoria FROM sistemadeinfomacion.producto";
-                   $sql_run = mysqli_query($conn,$sql);
-                   while($row = mysqli_fetch_array($sql_run))
-                   {
-
-                    ?>
-                    <tr>
-                        <td> <?php echo'<img src="data":image;base64,'.base64_encode($row['image']).'"alt="imagen"  >';?> </td>
-                        <td> <?php echo $row['nombre'] ?> </td> 
-                        <td> <?php echo $row['precio']?> </td> 
-                    </tr>
-                    <?php
-
-                   }
-                ?>
-            </table>
-        </form>
-    
+    <?php
+    include "conexion.php";
+    $sql = "SELECT nombre, imagen, precio, categoria FROM sistemadeinfomacion.producto";
+    $sql_run = mysqli_query($conn,$sql);
+    while($row = mysqli_fetch_array($sql_run))
+    {
+    ?>
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-3">
+                <img src="data:imagen;base64,<?php echo base64_encode($row['imagen']);?>" alt="...">
+            </div>
+            <div class="col-md-9">
+                <div class="card-body">
+                <h5 class="card-title">
+                    <?php echo $row['nombre'] ?>
+                </h5>
+                <p class="card-text">
+                    <?php echo $row['precio']?>
+                </p>
+                <a href="#" class="btn btn-primary">Ver</a>
+                <a href="#" class="btn btn-primary">Editar</a>
+                <a href="#" class="btn btn-primary">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+        
+        }
+    ?>
 </body>
 </html>
