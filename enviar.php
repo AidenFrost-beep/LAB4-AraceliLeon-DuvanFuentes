@@ -1,21 +1,28 @@
 <?php
 
-include "conexion.php";
+include("conexion.php");
 
-echo "XDSD";
+$image = $_FILES['imagen']['tmp_name'];
+$imgContent = addslashes(file_get_contents($image));
 
-$sql = "INSERT INTO sistemadeinfomacion.producto (id,nombre,imagen,precio,categoria,temporada,fechaingreso,descripcion)
-VALUES ('$_GET[id]','$_GET[nombre]','$_GET[imagen]', '$_GET[precio]','$_GET[categoria]','$_GET[temporada]'
-,'$_GET[fechaingreso]','$_GET[descripcion]')";
- 
-// $sql = "INSERT INTO sistemadeinfomacion.producto (precio,categoria,temporada,fechaingreso,descripcion)
-// VALUES ('$_GET[precio]','$_GET[categoria]','$_GET[temporada]'
-// ,,'$_GET[fechaingreso]','$_GET[descripcion]')";
 
- echo "XD";
+
+// $nombreimagen = $_FILES['imagen']['name'];//obtinen el nombre
+// $imagen =  $_FILES['imagen']['tmp_name'];//contiene el archivo
+// $ruta="imgs";
+
+// $ruta=$ruta."/".$nombreimagen;
+
+// move_uploaded_file($imagen,$ruta); 
+
+
+$sql = "INSERT INTO sistemadeinfomacion.producto(nombre,imagen,precio,categoria,temporada,fechaingreso,descripcion)
+VALUES ('$_POST[nombre]', '$imgContent', '$_POST[precio]','$_POST[categoria]','$_POST[temporada]'
+,'$_POST[fechaingreso]','$_POST[descripcion]')";
+
  
 if ($conn->query($sql) === TRUE){
-    echo "Registro agregado satisfactoriamente";
+    header ("Location: vista.php");
 
 }else{
     echo "Error: ". $sql . "<br>" . $conn->error;

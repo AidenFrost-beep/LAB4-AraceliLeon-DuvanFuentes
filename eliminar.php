@@ -7,10 +7,10 @@
    $resultado = $conn->query($sql);
 
    if($resultado){
-      echo "Borrado";
+      header ("Location: vista.php");
    }
    else{
-      echo "echo XD NO SE elimino";
+      echo "NO SE ELIMINO";
    }
 
 ?>
