@@ -25,9 +25,9 @@
             <?php
             include("conexion.php");
 
-            $iden = $_REQUEST['id'];
+            $id = $_REQUEST['id'];
 
-            $sql = "SELECT * FROM sistemadeinfomacion.producto WHERE id = '$iden'";
+            $sql = "SELECT * FROM sistemadeinfomacion.producto WHERE id = '$id'";
             $sql_run = mysqli_query($conn,$sql);
             if($row = mysqli_fetch_array($sql_run))
             {
@@ -36,7 +36,7 @@
             <div class="card col-12" style="width: 18rem; margin-top: 10px; margin-bottom: 10px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="data:imagen;base64,<?php echo base64_encode($row['imagen']);?>" class="card-img-top" alt="...">
+                        <img src="<?php echo $row['imagen'];?>" class="card-img-top" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

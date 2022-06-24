@@ -33,7 +33,7 @@
             ?>
                 <div class="card col-12 col-md-4 text-center" style="width: 18rem; margin-top: 10px; ">
                     <div class="row no-gutters">
-                        <img src="data:imagen;base64,<?php echo base64_encode($row['imagen']);?>" class="card-img-top" alt="...">
+                        <img src="<?php echo $row['imagen'];?>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title ">
                                 <?php echo $row['nombre'] ?>

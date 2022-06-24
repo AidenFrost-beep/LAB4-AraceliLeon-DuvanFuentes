@@ -41,22 +41,22 @@
                     <div class="form-group">
                         <p>Nombre: <input type="text" class="form-control"  name="nombre" value="<?php echo $row['nombre'];?>"/></p>
                         <p>Imagen: <input type="file" class="form-control-file" name="imagen"/></p>
-                        <img src="data:imagen;base64,<?php echo base64_encode($row['imagen']);?>"  alt="...">
+                        <img src="<?php echo $row['imagen'];?>"  alt="...">
                         <p>Precio: <input type="number" class="form-control"  name="precio" value="<?php echo $row['precio'];?>"/></p>
                         <p>Categoria:
-                            <select class="custom-select"  name="categoria" value="<?php echo $row['categoria'];?>">
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="custom-select"  name="categoria">
+                                <option value="1" <?php if($row['categoria']=='1') echo 'selected'; ?>>One</option>
+                                <option value="2" <?php if($row['categoria']=='2') echo 'selected'; ?>>Two</option>
+                                <option value="3"<?php if($row['categoria']=='3') echo 'selected'; ?>>Three</option>
                             </select>                              
                         </p>
                         <p>Temporada: 
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="customRadio1" name="temporada" class="custom-control-input" value="1eraopcion">
+                                <input type="radio" id="customRadio1" name="temporada" class="custom-control-input" value="1" <?php if($row['temporada']=='1') echo 'checked'; ?>>
                                 <label class="custom-control-label" for="customRadio1">1era opcion</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="customRadio2" name="temporada" class="custom-control-input" value="1eraopcion">
+                                <input type="radio" id="customRadio1" name="temporada" class="custom-control-input" value="0" <?php if($row['temporada']=='0') echo 'checked'; ?>>
                                 <label class="custom-control-label" for="customRadio2">2da opcion</label>
                             </div>
                         </p>
