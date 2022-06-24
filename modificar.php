@@ -40,24 +40,24 @@
                     <h2>Formulario</h2>
                     <div class="form-group">
                         <p>Nombre: <input type="text" class="form-control"  name="nombre" value="<?php echo $row['nombre'];?>"/></p>
-                        <p>Imagen: <input type="file" class="form-control-file" name="imagen"/></p>
-                        <img src="<?php echo $row['imagen'];?>"  alt="...">
+                        <p>Imagen: <input type="file" class="form-control-file" name="imagenmod" /></p>
+                            <img height="200px" src="<?php echo $row['imagen'];?>"  alt="...">
                         <p>Precio: <input type="number" class="form-control"  name="precio" value="<?php echo $row['precio'];?>"/></p>
                         <p>Categoria:
                             <select class="custom-select"  name="categoria">
-                                <option value="1" <?php if($row['categoria']=='1') echo 'selected'; ?>>One</option>
-                                <option value="2" <?php if($row['categoria']=='2') echo 'selected'; ?>>Two</option>
-                                <option value="3"<?php if($row['categoria']=='3') echo 'selected'; ?>>Three</option>
+                                <option value="1" <?php if($row['categoria']=='1') echo 'selected'; ?>>TE</option>
+                                <option value="2" <?php if($row['categoria']=='2') echo 'selected'; ?>>TE+7</option>
+                                <option value="3"<?php if($row['categoria']=='3') echo 'selected'; ?>>+14</option>
                             </select>                              
                         </p>
-                        <p>Temporada: 
+                        <p>Restriccion Venta: 
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="customRadio1" name="temporada" class="custom-control-input" value="1" <?php if($row['temporada']=='1') echo 'checked'; ?>>
-                                <label class="custom-control-label" for="customRadio1">1era opcion</label>
+                                <input type="radio" id="customRadio1" name="temporada" class="custom-control-input" value="SIN" <?php if($row['temporada']=='1') echo 'checked'; ?>>
+                                <label class="custom-control-label" for="customRadio1">SIN RESTRICCION</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="customRadio1" name="temporada" class="custom-control-input" value="0" <?php if($row['temporada']=='0') echo 'checked'; ?>>
-                                <label class="custom-control-label" for="customRadio2">2da opcion</label>
+                                <input type="radio" id="customRadio2" name="temporada" class="custom-control-input" value="CON" <?php if($row['temporada']=='0') echo 'checked'; ?>>
+                                <label class="custom-control-label" for="customRadio2">CON RESTRICCION</label>
                             </div>
                         </p>
                         <p>Fecha: <input type="date" class="form-control" name="fechaingreso" value="<?php echo $row['fechaingreso'];?>"/></p>

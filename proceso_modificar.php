@@ -14,14 +14,25 @@
     // $imgContent = addslashes(file_get_contents($image));
 
     // Creando una ruta donde se guarda el archivo
-    $nombreimagen = $_FILES['imagen']['name'];//obtiene el nombre
-    $imagen =  $_FILES['imagen']['tmp_name'];//contiene el archivo
-    $ruta="imgs";
+    $nombreimagen = $_FILES['imagenmod']['name'];//obtiene el nombre
+    $imagen =  $_FILES['imagenmod']['tmp_name'];//contiene el archivo
+     
 
-    $ruta=$ruta."/".$nombreimagen;
+    if($nombreimagen)
+    {           
+        $ruta="imgs";
+        $ruta=$ruta."/".$nombreimagen;
 
-    move_uploaded_file($imagen,$ruta); 
-
+        move_uploaded_file($imagen,$ruta);
+    }
+    else
+    {   
+        // if no image selected the old image remain as it is.
+        $sql= "SELECT imagen FROM sistemadeinfomacion.producto WHERE id='$id'"; 
+        $sql_run = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_array($sql_run);
+        $ruta = $row['imagen'];
+    } 
 
     $sql ="UPDATE sistemadeinfomacion.producto
     SET nombre= '$name', imagen= '$ruta', precio = '$precio',categoria = '$categoria',temporada = '$temporada',fechaingreso = '$fechaingreso' ,descripcion = '$descripcion'  WHERE id='$id' ";
